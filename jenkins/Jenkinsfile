@@ -1,11 +1,9 @@
 pipeline {
-    environment {
-      JAVA_TOOL_OPTIONS = '-Duser.home=/var/lib/jenkins'
-    }
+
     agent {
         docker {
             image 'maven:3.9.0'
-            args '-v /var/lib/jenkins:/root'
+            args '-u root'
         }
     }
     stages {
